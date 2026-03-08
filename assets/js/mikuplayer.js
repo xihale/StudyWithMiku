@@ -67,6 +67,7 @@ const util = {
 		util.readstoragetime();
 		util.initUmami();
 		util.initParams();
+		util.initToptips();
 	},
 	initParams: function () {
 		if (util.getUrlParams("type")) {
@@ -898,13 +899,27 @@ const util = {
 			$("video").css("height", wh).css("width", "auto").css("left", ww / 2 - $("video").width() / 2).css("top", "0");
 		}
 	},
-	//Video END
 	fullscreen: function (e) {
 		util.checkFullscreen() ? document.webkitCancelFullScreen ? document.webkitCancelFullScreen() : document.mozCancelFullScreen ? document.mozCancelFullScreen() : document.msExitFullscreen ? document.msExitFullscreen() : document.cancelFullScreen ? document.cancelFullScreen() : document.exitFullscreen && document.exitFullscreen() : (e ? "string" == typeof e && (e = document.getElementById(e)) : e = document.body, e.webkitRequestFullscreen ? e.webkitRequestFullscreen() : e.mozRequestFullScreen ? e.mozRequestFullScreen() : e.msRequestFullscreen ? e.msRequestFullscreen() : e.requestFullscreen && e.requestFullscreen());
 		util.checkFullscreen() ? $("#bt_fs").text("∷全屏") : $("#bt_fs").text("∷退出全屏");
 	},
 	checkFullscreen: function () {
 		return !!(document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || document.fullscreenElement);
+	},
+	//Video END
+	// Toptips BEGIN
+	initToptips: function(){
+		const today = new Date();
+		if (today.getMonth() === 2 && today.getDate() === 9) {
+			$("#toptips").html(`<a href="https://space.bilibili.com/399918500/dynamic" target="_blank" rel="noopener">初始之音，响彻未来</a>`);
+		}
+		if (today.getMonth() === 5) {
+			$("#toptips").text("愿一切美好如期而至");
+		}
+		if (today.getMonth() === 7 && today.getDate() === 31) {
+			$("#toptips").html(`<a href="https://space.bilibili.com/399918500/dynamic" target="_blank" rel="noopener">世界第一的公主殿下</a>`);
+		}
 	}
+	// Toptips END
 };
 console.log(`\n %c Study With Miku ${version} %c 在干什么呢(・∀・(・∀・(・∀・*) \n`, `color: #fadfa3; background: #030307; padding:5px 0;`, `background: #fadfa3; padding:5px 0; color: #000`);

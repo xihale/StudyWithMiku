@@ -37,7 +37,8 @@ html {
 #rest a,
 #bt_about a,
 #bt_feedback a,
-#bt_top a {
+#bt_top a ,
+#scene_top a{
     color: #fff;
     text-decoration: none;
     border-bottom: dashed 1px #fff;
@@ -62,8 +63,7 @@ html {
 /* hidden utils */
 .worldtime,
 .studytime,
-.hitokoto,
-#birthday {
+.hitokoto {
     display: none;
 }
 
